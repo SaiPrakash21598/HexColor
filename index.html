@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hex-Color</title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<style>
+    body{
+
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .container{
+        text-align:center;
+
+    }
+
+    .hexcolor{
+       text-transform:capitalize; 
+    }
+    .hex{
+        font-size:3rem;
+    }
+    .hexBtn{
+        color:#f15025;
+        border:3px solid #f15025;
+        border-radius:7px;
+        background:rgba (0,0,0,0.6);
+        font-size:1.6rem;
+        padding:0.25rem 0.5rem;
+        cursor:pointer;
+        outline:none;
+        text-transform:capitalize; 
+
+    }
+    .hexBtn:hover{
+        background-color:black;
+
+        opacity:1.5;
+    }
+</style>
+
+<body>
+    <div class="container">
+    <h2 class="hexcolor">Hex Color code is- <span class="hex"></span></h2>
+    <button type="button" class="hexBtn">Click here to change the color</button>
+    </div>
+   
+    <script>
+        const hexNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+        const hexBtn = document.querySelector('.hexBtn');
+        const bodyBcg = document.querySelector('body');
+        const hex = document.querySelector('.hex');
+
+        hexBtn.addEventListener('click', getHex);
+
+        function getHex() {
+            debugger;
+            let hexCol = '#';
+
+            for(let i=0;i<6;i++)
+            {
+                let random = Math.floor(Math.random() * hexNumbers.length);
+                hexCol += hexNumbers[random];
+            }
+            bodyBcg.style.backgroundColor = hexCol;
+            hex.innerHTML = hexCol;
+        }
+   </script>
+   
+</body>
+</html>
